@@ -42,6 +42,13 @@ Install-Package FeatureMasterX
 
 ## Usage
 
+Register in services
+
+```csharp
+
+builder.AddFeatureMasterX();
+```
+
 ```csharp
 
 var featureManager = services.BuildServiceProvider().GetRequiredService<IFeatureManager>();
