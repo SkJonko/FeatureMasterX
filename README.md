@@ -1,6 +1,6 @@
 ﻿# FeatureMasterX
 
-![FeatureMasterX Logo](assets/image.png)
+![FeatureMasterX Logo](assets/readMEImage.png)
 
 ## Overview
 
