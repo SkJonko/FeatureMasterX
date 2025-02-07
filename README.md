@@ -1,6 +1,6 @@
 ﻿# FeatureMasterX
 
-![FeatureMasterX Logo](path/to/your/image.png)
+![FeatureMasterX Logo](assets/image.png)
 
 ## Overview
 
