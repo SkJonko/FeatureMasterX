@@ -1,19 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net9.0</TargetFramework>
+		<TargetFrameworks>net6.0;net8.0;net9.0</TargetFrameworks>
 		<RepositoryUrl>https://github.com/SkJonko/FeatureMasterX</RepositoryUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageIcon>Images\image.png</PackageIcon>
+		<PackageIcon>image.png</PackageIcon>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Title>FeatureMasterX</Title>
 		<Description>A powerful and easy-to-use extension for Microsoft's FeatureManagement library</Description>
-		<Version>9.0.0</Version>
+		<Version>9.0.1</Version>
 		<Authors>SKJonko</Authors>
 		<Copyright>Copyright © 2025</Copyright>
 		<PackageReleaseNotes>
+      9.0.1
+      - Feature: Multitargets
 			9.0.0
 			- Feature: Port in NET 9.0 and add Package Icon.
 			8.0.0
@@ -24,14 +27,16 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <Version Condition="'$(TargetFramework)' == 'net6.0'">6.0.0</Version>
+      <Version Condition="'$(TargetFramework)' == 'net8.0'">8.0.2</Version>
+      <Version Condition="'$(TargetFramework)' == 'net9.0'">9.0.1</Version>
+    </PackageReference>
 		<PackageReference Include="Microsoft.FeatureManagement" Version="4.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Update="Images\image.png" Pack="true" PackagePath="\">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
+    <None Include="Images\image.png" Pack="true" PackagePath=""/>
 	</ItemGroup>
 
 </Project>
