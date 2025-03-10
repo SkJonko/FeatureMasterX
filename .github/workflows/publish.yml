@@ -87,8 +87,10 @@ jobs:
       with:
         dotnet-version: '9.0.x' # Use a specific version or '9.0.x' for the latest 9.0 preview
     
-    - name: Install Coverlet Collector
-      run: dotnet add package coverlet.collector
+    - name: Change Directory and Install Coverlet Collector
+      run: |
+        cd FeatureMasterX # Navigate to the project directory
+        dotnet add package coverlet.collector
 
     - name: Run Tests
       run: dotnet test --configuration Release --logger "trx;LogFileName=testresults.trx" --collect:"XPlat Code Coverage"
