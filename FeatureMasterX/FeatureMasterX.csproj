@@ -7,16 +7,20 @@
 		<PackageIcon>image.png</PackageIcon>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-    <LangVersion>latest</LangVersion>
+                <LangVersion>latest</LangVersion>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+                <GenerateDocumentationFile>true</GenerateDocumentationFile>
+                <PackageTags>feature-flags, configuration, .net</PackageTags>
+                <PackageReadmeFile>README.md</PackageReadmeFile>
+                <PackageProjectUrl>https://github.com/SkJonko/FeatureMasterX</PackageProjectUrl>
 		<Title>FeatureMasterX</Title>
 		<Description>A powerful and easy-to-use extension for Microsoft's FeatureManagement library</Description>
 		<Version>9.0.1</Version>
 		<Authors>SKJonko</Authors>
 		<Copyright>Copyright © 2025</Copyright>
 		<PackageReleaseNotes>
-      9.0.1
-      - Feature: Multitargets
+                        9.0.1
+                        - Feature: Multitargets
 			9.0.0
 			- Feature: Port in NET 9.0 and add Package Icon.
 			8.0.0
