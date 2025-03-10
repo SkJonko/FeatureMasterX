@@ -30,9 +30,14 @@ jobs:
       with:
         fetch-depth: 0 # Get all history to allow automatic versioning using MinVer
 
-    # Install the .NET SDK indicated in the global.json file
-    - name: Setup .NET
+
+    # Install .NET 9.0 SDK
+    - name: Setup .NET 9.0
       uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0.x' # Use a specific version or '9.0.x' for the latest 9.0 preview
+        include-prerelease: true # Include pre-release versions (important for .NET 9.0)
+
 
     # Create the NuGet package in the folder from the environment variable NuGetDirectory
     - run: dotnet pack --configuration Release --output ${{ env.NuGetDirectory }}
