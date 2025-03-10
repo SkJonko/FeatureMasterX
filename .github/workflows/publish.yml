@@ -78,8 +78,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Setup .NET
+      # Install .NET 9.0 SDK
+    - name: Setup .NET 9.0
       uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0.x' # Use a specific version or '9.0.x' for the latest 9.0 preview
+        include-prerelease: true # Include pre-release versions (important for .NET 9.0)
+
     - name: Run tests
       run: dotnet test --configuration Release
 
