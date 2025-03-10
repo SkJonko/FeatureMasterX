@@ -39,6 +39,8 @@ jobs:
         include-prerelease: true # Include pre-release versions (important for .NET 9.0)
 
 
+    - name: Build
+      run: dotnet build --configuration Release
     # Create the NuGet package in the folder from the environment variable NuGetDirectory
     - run: dotnet pack --configuration Release --output ${{ env.NuGetDirectory }}
 
