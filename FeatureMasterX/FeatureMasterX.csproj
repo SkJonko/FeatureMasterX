@@ -3,7 +3,6 @@
 	<PropertyGroup>
 		<TargetFrameworks>net6.0;net8.0;net9.0</TargetFrameworks>
 		<RepositoryUrl>https://github.com/SkJonko/FeatureMasterX</RepositoryUrl>
-                <PackageReadmeFile>../../README.md</PackageReadmeFile>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageIcon>image.png</PackageIcon>
 		<ImplicitUsings>enable</ImplicitUsings>
