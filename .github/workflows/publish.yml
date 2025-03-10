@@ -99,7 +99,7 @@ jobs:
       uses: dorny/test-reporter@v1
       with:
         name: .NET Tests
-        path: '*.trx'
+        path: '**/TestResults/*.trx' # Corrected path
         reporter: dotnet-trx
         fail-on-error: true
 
