@@ -107,7 +107,7 @@ jobs:
         reportgenerator -reports:"**/coverage.cobertura.xml" -targetdir:"coverageReport" -reporttypes:HtmlInline_AzurePipelines
 
     - name: Upload Coverage Report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Coverage Report
         path: coverageReport
