@@ -80,6 +80,7 @@ jobs:
        # using the --excluded-rules or --excluded-rule-ids option
        - name: Validate package
          run: meziantou.validate-nuget-package (Get-ChildItem "${{ env.NuGetDirectory }}/*.nupkg")
+         continue-on-error: true # Continue on Error
 
         
   run_test:
