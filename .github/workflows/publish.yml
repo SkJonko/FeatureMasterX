@@ -36,13 +36,14 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '9.0.x' # Use a specific version or '9.0.x' for the latest 9.0 preview
-        include-prerelease: true # Include pre-release versions (important for .NET 9.0)
 
-
+    # Build the NuGet package in the folder from the environment variable NuGetDirectory
     - name: Build
       run: dotnet build --configuration Release
+      
     # Create the NuGet package in the folder from the environment variable NuGetDirectory
-    - run: dotnet pack --configuration Release --output ${{ env.NuGetDirectory }}
+    - name: Pack
+      run: dotnet pack --configuration Release --output ${{ env.NuGetDirectory }}
 
     # Publish the NuGet package as an artifact, so they can be used in the following jobs
     - uses: actions/upload-artifact@v4
@@ -52,13 +53,17 @@ jobs:
         retention-days: 7
         path: ${{ env.NuGetDirectory }}/*.nupkg
 
+
   validate_nuget:
     runs-on: ubuntu-latest
     needs: [ create_nuget ]
     steps:
-      # Install the .NET SDK indicated in the global.json file
-      - name: Setup .NET
+    
+      # Install .NET 9.0 SDK
+      - name: Setup .NET 9.0
         uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x' # Use a specific version or '9.0.x' for the latest 9.0 preview
 
       # Download the NuGet package created in the previous job
       - uses: actions/download-artifact@v4
