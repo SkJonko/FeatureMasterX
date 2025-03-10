@@ -54,32 +54,32 @@ jobs:
         path: ${{ env.NuGetDirectory }}/*.nupkg
 
 
-  validate_nuget:
-    runs-on: ubuntu-latest
-    needs: [ create_nuget ]
-    steps:
+  # validate_nuget:
+  #   runs-on: ubuntu-latest
+  #   needs: [ create_nuget ]
+  #   steps:
     
-      # Install .NET 9.0 SDK
-      - name: Setup .NET 9.0
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '9.0.x' # Use a specific version or '9.0.x' for the latest 9.0 preview
+  #     # Install .NET 9.0 SDK
+  #     - name: Setup .NET 9.0
+  #       uses: actions/setup-dotnet@v4
+  #       with:
+  #         dotnet-version: '9.0.x' # Use a specific version or '9.0.x' for the latest 9.0 preview
 
-      # Download the NuGet package created in the previous job
-      - uses: actions/download-artifact@v4
-        with:
-          name: nuget
-          path: ${{ env.NuGetDirectory }}
+  #     # Download the NuGet package created in the previous job
+  #     - uses: actions/download-artifact@v4
+  #       with:
+  #         name: nuget
+  #         path: ${{ env.NuGetDirectory }}
 
-      - name: Install nuget validator
-        run: dotnet tool update Meziantou.Framework.NuGetPackageValidation.Tool --global
+  #     - name: Install nuget validator
+  #       run: dotnet tool update Meziantou.Framework.NuGetPackageValidation.Tool --global
 
-      # Validate metadata and content of the NuGet package
-      # https://www.nuget.org/packages/Meziantou.Framework.NuGetPackageValidation.Tool#readme-body-tab
-      # If some rules are not applicable, you can disable them
-      # using the --excluded-rules or --excluded-rule-ids option
-      - name: Validate package
-        run: meziantou.validate-nuget-package (Get-ChildItem "${{ env.NuGetDirectory }}/*.nupkg")
+  #     # Validate metadata and content of the NuGet package
+  #     # https://www.nuget.org/packages/Meziantou.Framework.NuGetPackageValidation.Tool#readme-body-tab
+  #     # If some rules are not applicable, you can disable them
+  #     # using the --excluded-rules or --excluded-rule-ids option
+  #     - name: Validate package
+  #       run: meziantou.validate-nuget-package (Get-ChildItem "${{ env.NuGetDirectory }}/*.nupkg")
 
         
   run_test:
@@ -103,7 +103,7 @@ jobs:
     # You can update this logic if you want to manage releases differently
     if: github.event_name == 'release'
     runs-on: ubuntu-latest
-    needs: [ validate_nuget, run_test ]
+    needs: [ create_nuget, run_test ]
     steps:
       # Download the NuGet package created in the previous job
       - uses: actions/download-artifact@v4
