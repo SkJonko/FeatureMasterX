@@ -14,10 +14,12 @@
 		<PackageProjectUrl>https://github.com/SkJonko/FeatureMasterX</PackageProjectUrl>
 		<Title>FeatureMasterX</Title>
 		<Description>A powerful and easy-to-use extension for Microsoft's FeatureManagement library</Description>
-		<Version>9.0.1</Version>
+		<Version>9.0.2</Version>
 		<Authors>SKJonko</Authors>
 		<Copyright>Copyright © 2025</Copyright>
 		<PackageReleaseNotes>
+			9.0.2
+			- Feature: Add Scoped Dependency Injection of FeatureMasterX
 			9.0.1
 			- Feature: Multitargets
 			9.0.0
