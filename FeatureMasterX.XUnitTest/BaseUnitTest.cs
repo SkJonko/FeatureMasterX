@@ -23,6 +23,10 @@ namespace FeatureMasterX.XUnitTest
         public Task DisposeAsync() =>
             Task.CompletedTask;
 
+        /// <summary>
+        /// Initialize the test class.
+        /// </summary>
+        /// <returns></returns>
         public async Task InitializeAsync()
         {
             _instance = CreateServiceCollection();
