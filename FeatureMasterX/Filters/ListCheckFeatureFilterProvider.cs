@@ -40,7 +40,7 @@ namespace FeatureMasterX.Filters
                 {
                     Name = FeatureMasterXExtensions.ListCheck,
                     Parameters = new ConfigurationBuilder()
-                        .AddInMemoryCollection(new Dictionary<string, string>
+                        .AddInMemoryCollection(new Dictionary<string, string?>
                         {
                             { FeatureMasterXExtensions.AllowedUsers, JsonSerializer.Serialize(allowedUsers) }
                         })
@@ -69,7 +69,7 @@ namespace FeatureMasterX.Filters
                     {
                         Name = FeatureMasterXExtensions.ListCheck,
                         Parameters = new ConfigurationBuilder()
-                            .AddInMemoryCollection(new Dictionary<string, string>
+                            .AddInMemoryCollection(new Dictionary<string, string?>
                             {
                                 { FeatureMasterXExtensions.AllowedUsers, JsonSerializer.Serialize(allowedUsers) }
                             })
